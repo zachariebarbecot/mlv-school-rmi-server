@@ -7,16 +7,8 @@ It's a project for the second year of Master "Logiciel" (2015-2016) in Universit
 
 The project contains:
 * RMI Server which provides a library service [(link)](https://github.com/zachariebarbecot/mlv-school-rmi-server)
-<<<<<<< HEAD
-<<<<<<< HEAD
 * RMI Client which uses the RMI Server [(link)](https://github.com/zachariebarbecot/mlv-school-rmi-client)
 * 
-=======
-* GUI to use the library service
->>>>>>> origin/zacharie
-=======
-* GUI to use the library service
->>>>>>> origin/zacharie
 
 
 
