@@ -1,34 +1,28 @@
-package user;
+package api;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.Date;
 
-public interface IUser
+public interface IComment
         extends Remote {
 
-    public long getUserID()
+    public long getCommentID()
             throws RemoteException;
 
-    public void setUserID(long userID)
+    public void setCommentID(long commentID)
             throws RemoteException;
 
-    public String getLName()
+    public long getIsbn()
             throws RemoteException;
 
-    public void setLName(String lname)
+    public void setIsbn(long isbn)
             throws RemoteException;
 
-    public String getFName()
+    public String getComment()
             throws RemoteException;
 
-    public void setFName(String fname)
-            throws RemoteException;
-
-    public boolean getStatus()
-            throws RemoteException;
-
-    public void setStatus(boolean status)
+    public void setComment(String comment)
             throws RemoteException;
 
     public Date getCreated()
@@ -39,5 +33,4 @@ public interface IUser
 
     public String display()
             throws RemoteException;
-
 }

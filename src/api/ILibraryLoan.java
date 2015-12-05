@@ -1,9 +1,8 @@
-package library;
+package api;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
-import loan.ILoan;
 
 public interface ILibraryLoan
         extends Remote {

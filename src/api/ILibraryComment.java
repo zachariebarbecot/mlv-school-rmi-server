@@ -1,6 +1,5 @@
-package library;
+package api;
 
-import comment.IComment;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;

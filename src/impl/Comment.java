@@ -1,5 +1,6 @@
-package comment;
+package impl;
 
+import api.IComment;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -16,10 +17,12 @@ public class Comment
 
     public Comment()
             throws RemoteException {
+        super();
     }
 
     public Comment(long commentID, long isbn, String comment)
             throws RemoteException {
+        super();
         this.commentID = commentID;
         this.isbn = isbn;
         this.comment = comment;
@@ -27,55 +30,55 @@ public class Comment
     }
 
     @Override
-    public long getCommentID()
+    public synchronized long getCommentID()
             throws RemoteException {
         return commentID;
     }
 
     @Override
-    public void setCommentID(long commentID)
+    public synchronized void setCommentID(long commentID)
             throws RemoteException {
         this.commentID = commentID;
     }
 
     @Override
-    public long getIsbn()
+    public synchronized long getIsbn()
             throws RemoteException {
         return isbn;
     }
 
     @Override
-    public void setIsbn(long isbn)
+    public synchronized void setIsbn(long isbn)
             throws RemoteException {
         this.isbn = isbn;
     }
 
     @Override
-    public String getComment()
+    public synchronized String getComment()
             throws RemoteException {
         return comment;
     }
 
     @Override
-    public void setComment(String comment)
+    public synchronized void setComment(String comment)
             throws RemoteException {
         this.comment = comment;
     }
 
     @Override
-    public Date getCreated()
+    public synchronized Date getCreated()
             throws RemoteException {
         return created;
     }
 
     @Override
-    public void setCreated(Date created)
+    public synchronized void setCreated(Date created)
             throws RemoteException {
         this.created = created;
     }
 
     @Override
-    public String display()
+    public synchronized String display()
             throws RemoteException {
         return "{'Comment':"
                 + "{"

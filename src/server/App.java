@@ -4,8 +4,8 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
-import library.ILibrary;
-import library.Library;
+import api.ILibrary;
+import impl.Library;
 
 public class App extends AbstractApp {
 

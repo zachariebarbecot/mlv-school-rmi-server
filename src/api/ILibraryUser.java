@@ -1,8 +1,7 @@
-package library;
+package api;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-import user.IUser;
 
 public interface ILibraryUser
         extends Remote {

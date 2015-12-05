@@ -1,5 +1,6 @@
-package user;
+package impl;
 
+import api.IUser;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -31,67 +32,73 @@ public class User
     }
 
     @Override
-    public long getUserID()
+    public synchronized long getUserID()
             throws RemoteException {
         return userID;
     }
 
     @Override
-    public void setUserID(long userID)
+    public synchronized void setUserID(long userID)
             throws RemoteException {
         this.userID = userID;
     }
 
     @Override
-    public String getLName()
+    public synchronized String getLName()
             throws RemoteException {
         return lname;
     }
 
     @Override
-    public void setLName(String lname)
+    public synchronized void setLName(String lname)
             throws RemoteException {
         this.lname = lname;
     }
 
     @Override
-    public String getFName()
+    public synchronized String getFName()
             throws RemoteException {
         return fname;
     }
 
     @Override
-    public void setFName(String fname)
+    public synchronized void setFName(String fname)
             throws RemoteException {
         this.fname = fname;
     }
 
     @Override
-    public boolean getStatus()
+    public synchronized boolean getStatus()
             throws RemoteException {
         return status;
     }
 
     @Override
-    public void setStatus(boolean status)
+    public synchronized void setStatus(boolean status)
             throws RemoteException {
         this.status = status;
     }
 
     @Override
-    public Date getCreated()
+    public synchronized Date getCreated()
             throws RemoteException {
         return created;
     }
 
     @Override
-    public void setCreated(Date created)
+    public synchronized void setCreated(Date created)
             throws RemoteException {
         this.created = created;
     }
 
     @Override
-    public String display()
+    public void update(long isbn)
+            throws RemoteException {
+        
+    }
+
+    @Override
+    public synchronized String display()
             throws RemoteException {
         return "{'User':"
                 + "{"
@@ -103,4 +110,5 @@ public class User
                 + "}"
                 + "}";
     }
+
 }

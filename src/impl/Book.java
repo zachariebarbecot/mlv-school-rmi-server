@@ -1,8 +1,11 @@
-package book;
+package impl;
 
+import api.IBook;
+import api.IUser;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Book
@@ -13,10 +16,12 @@ public class Book
     private String title;
     private String author;
     private Date created;
+    private ArrayList<IUser> userList;
 
     public Book()
             throws RemoteException {
         super();
+        this.userList = new ArrayList<>();
     }
 
     public Book(long isbn, String title, String author)
@@ -26,58 +31,79 @@ public class Book
         this.title = title;
         this.author = author;
         this.created = new Date();
+        this.userList = new ArrayList<>();
     }
 
     @Override
-    public long getIsbn()
+    public synchronized long getIsbn()
             throws RemoteException {
         return isbn;
     }
 
     @Override
-    public void setIsbn(long isbn)
+    public synchronized void setIsbn(long isbn)
             throws RemoteException {
         this.isbn = isbn;
     }
 
     @Override
-    public String getTitle()
+    public synchronized String getTitle()
             throws RemoteException {
         return title;
     }
 
     @Override
-    public void setTitle(String title)
+    public synchronized void setTitle(String title)
             throws RemoteException {
         this.title = title;
     }
 
     @Override
-    public String getAuthor()
+    public synchronized String getAuthor()
             throws RemoteException {
         return author;
     }
 
     @Override
-    public void setAuthor(String author)
+    public synchronized void setAuthor(String author)
             throws RemoteException {
         this.author = author;
     }
 
     @Override
-    public Date getCreated()
+    public synchronized Date getCreated()
             throws RemoteException {
         return created;
     }
 
     @Override
-    public void setCreated(Date created)
+    public synchronized void setCreated(Date created)
             throws RemoteException {
         this.created = created;
     }
 
     @Override
-    public String display()
+    public synchronized ArrayList<IUser> getUserList() throws RemoteException {
+        return userList;
+    }
+
+    @Override
+    public synchronized void setUserList(ArrayList<IUser> userList) throws RemoteException {
+        this.userList = userList;
+    }
+
+    @Override
+    public synchronized void subscribe(IUser user) throws RemoteException {
+        userList.add(user);
+    }
+
+    @Override
+    public synchronized void unsubscribe(IUser user) throws RemoteException {
+        userList.remove(user);
+    }
+
+    @Override
+    public synchronized String display()
             throws RemoteException {
         return "{'Book':"
                 + "{"

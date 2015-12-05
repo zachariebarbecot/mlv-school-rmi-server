@@ -1,6 +1,6 @@
 package server;
 
-import library.ILibrary;
+import api.ILibrary;
 import java.rmi.RemoteException;
 
 public abstract class AbstractApp {

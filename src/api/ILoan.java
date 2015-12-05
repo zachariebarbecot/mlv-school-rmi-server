@@ -1,10 +1,10 @@
-package book;
+package api;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.Date;
 
-public interface IBook
+public interface ILoan
         extends Remote {
 
     public long getIsbn()
@@ -13,16 +13,10 @@ public interface IBook
     public void setIsbn(long isbn)
             throws RemoteException;
 
-    public String getTitle()
+    public long getUserID()
             throws RemoteException;
 
-    public void setTitle(String title)
-            throws RemoteException;
-
-    public String getAuthor()
-            throws RemoteException;
-
-    public void setAuthor(String author)
+    public void setUserID(long userID)
             throws RemoteException;
 
     public Date getCreated()
