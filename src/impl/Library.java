@@ -74,7 +74,7 @@ public class Library
     }
 
     @Override
-    public List<IBook> findBookAll() throws RemoteException {
+    public synchronized List<IBook> findBookAll() throws RemoteException {
         List<IBook> booksList = new ArrayList<>();
         books.forEach((isbn, book) -> {
             booksList.add(book);
@@ -133,7 +133,7 @@ public class Library
         if (this.findLoanByIsbn(isbn) != null) {
             loans.remove(isbn);
             IBook book = findBookByIsbn(isbn);
-            if (book.getUserList().get(0) == null) {
+            if (!book.getUserList().isEmpty() && book.getUserList().get(0) != null) {
                 createLoan(isbn, book.getUserList().get(0).getUserID());
                 book.getUserList().remove(0);
             }

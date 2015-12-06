@@ -6,6 +6,8 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import api.ILibrary;
 import impl.Library;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class App extends AbstractApp {
 
