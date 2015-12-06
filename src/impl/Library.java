@@ -74,6 +74,15 @@ public class Library
     }
 
     @Override
+    public List<IBook> findBookAll() throws RemoteException {
+        List<IBook> booksList = new ArrayList<>();
+        books.forEach((isbn, book) -> {
+            booksList.add(book);
+        });
+        return booksList;
+    }
+
+    @Override
     public synchronized IBook findBookByIsbn(long isbn) throws RemoteException {
         return books.get(isbn);
     }
@@ -191,4 +200,5 @@ public class Library
         });
         return commentsList;
     }
+
 }

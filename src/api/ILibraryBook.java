@@ -13,6 +13,9 @@ public interface ILibraryBook
     public void deleteBook(long isbn)
             throws RemoteException;
 
+    public List<IBook> findBookAll()
+            throws RemoteException;
+
     public IBook findBookByIsbn(long isbn)
             throws RemoteException;
 
