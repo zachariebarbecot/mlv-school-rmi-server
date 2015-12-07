@@ -4,7 +4,7 @@ import api.ILoan;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Loan
         extends UnicastRemoteObject
@@ -12,7 +12,7 @@ public class Loan
 
     private long isbn;
     private long userID;
-    private Date created;
+    private LocalDateTime created;
 
     public Loan()
             throws RemoteException {
@@ -24,7 +24,7 @@ public class Loan
         super();
         this.isbn = isbn;
         this.userID = userID;
-        this.created = new Date();
+        this.created = LocalDateTime.now();
     }
 
     @Override
@@ -52,13 +52,13 @@ public class Loan
     }
 
     @Override
-    public synchronized Date getCreated()
+    public synchronized LocalDateTime getCreated()
             throws RemoteException {
         return created;
     }
 
     @Override
-    public synchronized void setCreated(Date created)
+    public synchronized void setCreated(LocalDateTime created)
             throws RemoteException {
         this.created = created;
     }

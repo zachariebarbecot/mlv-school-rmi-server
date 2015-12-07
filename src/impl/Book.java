@@ -5,8 +5,8 @@ import api.IUser;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Book
         extends UnicastRemoteObject
@@ -15,7 +15,8 @@ public class Book
     private long isbn;
     private String title;
     private String author;
-    private Date created;
+    private int counter;
+    private LocalDateTime created;
     private ArrayList<IUser> userList;
 
     public Book()
@@ -30,7 +31,8 @@ public class Book
         this.isbn = isbn;
         this.title = title;
         this.author = author;
-        this.created = new Date();
+        this.counter = 0;
+        this.created = LocalDateTime.now();
         this.userList = new ArrayList<>();
     }
 
@@ -71,13 +73,25 @@ public class Book
     }
 
     @Override
-    public synchronized Date getCreated()
+    public synchronized int getCounter()
+            throws RemoteException {
+        return counter;
+    }
+
+    @Override
+    public synchronized void setCounter(int counter)
+            throws RemoteException {
+        this.counter = counter;
+    }
+
+    @Override
+    public synchronized LocalDateTime getCreated()
             throws RemoteException {
         return created;
     }
 
     @Override
-    public synchronized void setCreated(Date created)
+    public synchronized void setCreated(LocalDateTime created)
             throws RemoteException {
         this.created = created;
     }

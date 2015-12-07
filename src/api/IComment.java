@@ -2,7 +2,7 @@ package api;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public interface IComment
         extends Remote {
@@ -25,10 +25,10 @@ public interface IComment
     public void setComment(String comment)
             throws RemoteException;
 
-    public Date getCreated()
+    public LocalDateTime getCreated()
             throws RemoteException;
 
-    public void setCreated(Date created)
+    public void setCreated(LocalDateTime created)
             throws RemoteException;
 
     public String display()

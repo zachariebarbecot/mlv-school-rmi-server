@@ -2,7 +2,7 @@ package api;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public interface ILoan
         extends Remote {
@@ -19,10 +19,10 @@ public interface ILoan
     public void setUserID(long userID)
             throws RemoteException;
 
-    public Date getCreated()
+    public LocalDateTime getCreated()
             throws RemoteException;
 
-    public void setCreated(Date created)
+    public void setCreated(LocalDateTime created)
             throws RemoteException;
 
     public String display()

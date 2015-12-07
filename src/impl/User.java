@@ -4,6 +4,7 @@ import api.IUser;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class User
@@ -14,7 +15,7 @@ public class User
     private String lname;
     private String fname;
     private boolean status;
-    private Date created;
+    private LocalDateTime created;
 
     public User()
             throws RemoteException {
@@ -28,7 +29,7 @@ public class User
         this.lname = lname;
         this.fname = fname;
         this.status = status;
-        this.created = new Date();
+        this.created = LocalDateTime.now();
     }
 
     @Override
@@ -80,13 +81,13 @@ public class User
     }
 
     @Override
-    public synchronized Date getCreated()
+    public synchronized LocalDateTime getCreated()
             throws RemoteException {
         return created;
     }
 
     @Override
-    public synchronized void setCreated(Date created)
+    public synchronized void setCreated(LocalDateTime created)
             throws RemoteException {
         this.created = created;
     }
@@ -94,7 +95,7 @@ public class User
     @Override
     public void update(long isbn)
             throws RemoteException {
-        
+
     }
 
     @Override

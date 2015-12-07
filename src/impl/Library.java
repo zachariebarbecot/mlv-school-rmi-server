@@ -121,6 +121,8 @@ public class Library
     public synchronized void createLoan(long isbn, long userID) throws RemoteException {
         if (this.findLoanByIsbn(isbn) == null) {
             Loan loan = new Loan(isbn, userID);
+            findBookByIsbn(isbn).setCounter(
+                    findBookByIsbn(isbn).getCounter() + 1);
             loans.put(isbn, loan);
         } else {
             IBook book = findBookByIsbn(isbn);

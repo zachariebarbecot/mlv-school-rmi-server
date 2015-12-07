@@ -4,7 +4,7 @@ import api.IComment;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Comment
         extends UnicastRemoteObject
@@ -13,7 +13,7 @@ public class Comment
     private long commentID;
     private long isbn;
     private String comment;
-    private Date created;
+    private LocalDateTime created;
 
     public Comment()
             throws RemoteException {
@@ -26,7 +26,7 @@ public class Comment
         this.commentID = commentID;
         this.isbn = isbn;
         this.comment = comment;
-        this.created = new Date();
+        this.created = LocalDateTime.now();
     }
 
     @Override
@@ -66,13 +66,13 @@ public class Comment
     }
 
     @Override
-    public synchronized Date getCreated()
+    public synchronized LocalDateTime getCreated()
             throws RemoteException {
         return created;
     }
 
     @Override
-    public synchronized void setCreated(Date created)
+    public synchronized void setCreated(LocalDateTime created)
             throws RemoteException {
         this.created = created;
     }

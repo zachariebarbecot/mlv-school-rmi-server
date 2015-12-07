@@ -2,8 +2,8 @@ package api;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 
 public interface IBook
         extends Remote {
@@ -26,10 +26,16 @@ public interface IBook
     public void setAuthor(String author)
             throws RemoteException;
 
-    public Date getCreated()
+    public int getCounter()
             throws RemoteException;
 
-    public void setCreated(Date created)
+    public void setCounter(int counter)
+            throws RemoteException;
+
+    public LocalDateTime getCreated()
+            throws RemoteException;
+
+    public void setCreated(LocalDateTime created)
             throws RemoteException;
 
     public ArrayList<IUser> getUserList()

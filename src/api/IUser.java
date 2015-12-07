@@ -2,7 +2,7 @@ package api;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public interface IUser
         extends Remote {
@@ -31,10 +31,10 @@ public interface IUser
     public void setStatus(boolean status)
             throws RemoteException;
 
-    public Date getCreated()
+    public LocalDateTime getCreated()
             throws RemoteException;
 
-    public void setCreated(Date created)
+    public void setCreated(LocalDateTime created)
             throws RemoteException;
 
     public void update(long isbn)
