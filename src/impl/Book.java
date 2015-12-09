@@ -36,6 +36,17 @@ public class Book
         this.userList = new ArrayList<>();
     }
 
+    public Book(long isbn, String title, String author, int counter)
+            throws RemoteException {
+        super();
+        this.isbn = isbn;
+        this.title = title;
+        this.author = author;
+        this.counter = counter;
+        this.created = LocalDateTime.of(2005, 12, 18, 14, 30);
+        this.userList = new ArrayList<>();
+    }
+
     @Override
     public synchronized long getIsbn()
             throws RemoteException {

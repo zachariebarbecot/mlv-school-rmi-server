@@ -10,6 +10,9 @@ public interface ILibraryBook
     public void createBook(long isbn, String title, String author)
             throws RemoteException;
 
+    public void createBook(long isbn, String title, String author, int counter)
+            throws RemoteException;
+
     public void deleteBook(long isbn)
             throws RemoteException;
 

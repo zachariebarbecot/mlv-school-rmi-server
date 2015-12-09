@@ -23,6 +23,8 @@ public abstract class AbstractApp {
         library.createBook(266208918, "Dragon Rouge", "Thomas HARRIS");
         library.createBook(290071823, "La stratégie Ender", "Orson SCOTT CARD");
         library.createBook(290312926, "La voix des morts", "Orson SCOTT CARD");
+        library.createBook(290075465, "La stratégie Ender Bis", "Orson SCOTT CARD", 99);
+        library.createBook(290316546, "La voix des morts Ter", "Orson SCOTT CARD", 50);
     }
 
     protected static void createLoan(ILibrary library)

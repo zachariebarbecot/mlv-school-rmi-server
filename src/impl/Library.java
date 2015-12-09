@@ -67,6 +67,14 @@ public class Library
     }
 
     @Override
+    public synchronized void createBook(long isbn, String title, String author, int counter) throws RemoteException {
+        if (this.findBookByIsbn(isbn) == null) {
+            Book book = new Book(isbn, title, author, counter);
+            books.put(isbn, book);
+        }
+    }
+
+    @Override
     public synchronized void deleteBook(long isbn) throws RemoteException {
         if (this.findBookByIsbn(isbn) != null) {
             books.remove(isbn);
