@@ -7,6 +7,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Book
         extends UnicastRemoteObject
@@ -43,7 +44,13 @@ public class Book
         this.title = title;
         this.author = author;
         this.counter = counter;
-        this.created = LocalDateTime.of(2005, 12, 18, 14, 30);
+        Random r = new Random();
+
+        this.created = LocalDateTime.of(r.nextInt(11) + 2005,
+                r.nextInt(12) + 1,
+                r.nextInt(31) + 1,
+                r.nextInt(24),
+                r.nextInt(61));
         this.userList = new ArrayList<>();
     }
 
