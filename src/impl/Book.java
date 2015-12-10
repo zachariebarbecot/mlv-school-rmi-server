@@ -48,7 +48,7 @@ public class Book
 
         this.created = LocalDateTime.of(r.nextInt(11) + 2005,
                 r.nextInt(12) + 1,
-                r.nextInt(30) + 1,
+                r.nextInt(27) + 1,
                 r.nextInt(24),
                 r.nextInt(60));
         this.userList = new ArrayList<>();
